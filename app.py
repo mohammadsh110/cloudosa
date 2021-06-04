@@ -7,7 +7,6 @@ import json
 import plotly.express as px
 import plotly
 
-heroku ps:scale web=1.
     
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'

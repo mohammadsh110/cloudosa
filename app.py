@@ -112,7 +112,7 @@ def get_command(command):
 
 
 if __name__ == '__main__':
-    socketio.run(app,threaded=True)
+    socketio.run(app,threaded=True, port=5000)
 
 
  

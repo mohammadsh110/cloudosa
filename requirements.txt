@@ -5,4 +5,3 @@ requests
 pandas
 plotly==4.14.3
 gunicorn
-gevent==1.4.0

@@ -28,7 +28,7 @@
 
 <script type="text/javascript">
           // connect to Pusher
-              var socket = io.connect('http://' + document.domain);
+              var socket = io.connect('https://localhost', {secure: true});
               var first_time = true;
               var graph;
 

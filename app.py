@@ -83,6 +83,32 @@ def handle_my_custom_event(json):
         socketio.emit('command', Jresponse, namespace='/test')
 
 
+@app.route('/api/<string:command>', methods=['GET'])
+def get_command(command):
+    uResponse = requests.get(uri + command)
+    Jresponse = uResponse.text
+
+    if command=='START':
+        while Jresponse[0:6] != '+READY':
+            uResponse = requests.get(uri + command)
+            Jresponse = uResponse.text
+        scheduler.resume()
+
+    elif command=='STOP':
+        while Jresponse[0:6] != '+READY':
+            uResponse = requests.get(uri + command)
+            Jresponse = uResponse.text
+        scheduler.pause()
+
+
+    elif command=='SINGLE':
+        while Jresponse[0:6] != '+READY':
+            uResponse = requests.get(uri + command)
+            Jresponse = uResponse.text
+        scheduler.pause()
+        retrieve_data()
+    socketio.emit('command', 'API Request:  '+Jresponse, namespace='/test')
+    return Jresponse
 
 
 if __name__ == '__main__':

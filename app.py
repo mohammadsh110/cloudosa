@@ -9,7 +9,6 @@ import plotly
 
     
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
 socketio = SocketIO(app, verify=False, logger=True, engineio_logger=True, cors_allowed_origins='*')
 
 valid_commands=['']

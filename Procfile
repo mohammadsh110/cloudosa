@@ -1,1 +1,1 @@
-web: gunicorn app:osanalyzer
+web: gunicorn osanalyzer:app

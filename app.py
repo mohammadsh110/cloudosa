@@ -20,7 +20,7 @@ def index():
 
 uri = "http://flaskosa.herokuapp.com/cmd/"
 
-@socketio.on('new_plot', namespace="/test")
+@socketio.on('new_plot')
 def retrieve_data():
 
                 uResponse = requests.get(uri+'TRACE')
@@ -45,7 +45,7 @@ scheduler.add_job(
 scheduler.start()
 scheduler.pause()
 
-@socketio.on('command', namespace="/test")
+@socketio.on('command')
 def handle_my_custom_event(json):
     if str(json)=='START':
         flag = True

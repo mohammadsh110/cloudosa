@@ -1,2 +1,1 @@
-web: gunicorn -b :5000 --access-logfile - --error-logfile - app:app
-
+web: gunicorn -b : $PORT app:app
